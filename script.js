@@ -4,7 +4,6 @@ accordionHeaders.forEach((header) => {
     header.addEventListener("click", () => {
         const accordionBody = header.nextElementSibling;
 
-        // Close all other accordion items
         accordionHeaders.forEach((otherHeader) => {
             if (otherHeader !== header) {
                 otherHeader.classList.remove("active");
@@ -12,7 +11,6 @@ accordionHeaders.forEach((header) => {
             }
         });
 
-        // Toggle the current item
         header.classList.toggle("active");
         if (header.classList.contains("active")) {
             accordionBody.style.maxHeight = accordionBody.scrollHeight + "px";
