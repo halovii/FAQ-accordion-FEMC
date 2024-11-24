@@ -1,0 +1,133 @@
+@font-face {
+    font-family: workSans;
+    src: url(assets/Work_Sans/WorkSans-VariableFont_wght.ttf);
+}
+
+body{
+    background-color: hsl(275, 100%, 97%);
+}
+
+.wrapper{
+    height: 100vh;
+    font-family: workSans;
+    display: grid;
+    place-items: center;
+}
+
+.wrapper::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 30%;
+    z-index: -1;
+    background: url(assets/images/background-pattern-desktop.svg) center/cover no-repeat;
+}
+
+
+.container{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 480px;
+    height: auto;
+    border-radius: 0.5rem;
+    overflow: visible;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
+    padding-bottom: 1rem;
+    padding-left: 0.5rem;
+}
+
+header{
+    display: flex;
+    gap: 1rem;
+    margin-left: 1rem;
+    padding: 1.5rem 0rem 0rem 1rem;
+}
+
+.accordion-block{
+    padding: 1rem;
+}
+h2{
+    position: relative;
+    top: 1rem;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.accordion-header{
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    border-top: 1px solid hsl(275, 100%, 97%);
+}
+.accordion-header::after{
+    content: "";
+    display: block;
+    background-image: url(assets/images/icon-plus.svg);
+    width: 16px;
+    height: 16px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 1rem;
+    top: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active::after{
+    content: "";
+    display: block;
+    background-image: url(assets/images/icon-minus.svg);
+    width: 16px;
+    height: 16px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 1rem;
+}
+
+
+.accordion-body{
+    max-height: 0;
+    margin: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease;
+}
+
+
+.accordion-body-text{
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.7rem;
+    margin-top: 2rem;
+}
+
+
+@media (max-width: 600px) {
+    .container{
+        width: 300px;
+    }
+    header{
+        margin-left: 0;
+    }
+    h2{
+        position: relative;
+        top: 1rem;
+        padding-right: 1rem;
+        margin-right: 1.2rem;
+        font-size: 0.9rem;
+        text-align: left;
+    }
+    /* .accordion-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    } */
+    .accordion-header::after{
+        margin-top: 0.25rem;
+    }
+
+}
